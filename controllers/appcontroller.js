@@ -13,10 +13,7 @@ const { query } = require('express');
 const axios =require('axios');
 
 //login
-const app_login_get=(req,res)=>{
-    res.render('login',{title:'login'});
 
-}
 const app_login_post=async(req,res)=>{
     var id = req.body.id
     var password = req.body.password
@@ -41,10 +38,7 @@ const app_login_post=async(req,res)=>{
 
 }
 //signup
-const app_signup_get=(req,res)=>{
-    res.render('signup',{title:' Signup'});
 
-}
 const app_signup_post= async(req,res)=>{
     
     try{
@@ -392,8 +386,7 @@ const app_home_get=async(req,res)=>{
 
 module.exports={
     //app_index,
-    app_login_get,
-    app_signup_get,
+
     app_signup_post,
     app_logout,
     app_login_post,
