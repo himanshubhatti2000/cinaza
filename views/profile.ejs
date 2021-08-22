@@ -1,0 +1,23 @@
+<html>
+<%- include('./partials/head.ejs')    %>
+
+<body>
+    <%- include('./partials/nav.ejs')    %>
+
+    <form  action="/addFriend" method="POST">
+    
+        <div>
+            <h2> requests</h2>
+                    <h3><%= Freq.friendsRequested%></h3>
+                    <button>Accept friend request</button>
+                    </a>
+        </div>
+
+        
+        <!-- login  -->
+
+    </form>
+</body>
+
+<%- include('./partials/footer.ejs')    %>
+</html>

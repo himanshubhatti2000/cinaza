@@ -1,0 +1,43 @@
+<html>
+<%- include('./partials/head.ejs')    %>
+
+<body>
+    <%- include('./partials/nav.ejs')    %>
+
+    <form  action="/addpost" method="POST">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" >
+        <label for="post">Post:</label>
+        <input type="text" id="post"  name="post">
+        <button>Post</button>
+    </form>
+        <div>
+            <h2>All posts</h2>
+            <% if(Posts.length>0){%>
+                <% Posts.forEach(Posts => { %>
+                    
+                    <% friends.forEach(friends => { %>
+                        
+                        
+                        <% if(Posts.uploader== friends.username || Posts.uploader==user){%>
+                        <a  href="/Posts/<%= Posts._id%>">
+                        <h3><%= Posts.title %>   <%= Posts.uploader%></h3>
+                    
+                    </a>
+                        <% } %>
+                    <% }) %>
+                <% }) %>
+
+            <%    } else {  %>
+                <p>there are no blogs to show</p>
+            <% } %>
+        </div>
+
+        
+       
+
+    
+</body>
+
+<%- include('./partials/footer.ejs')    %>
+</html>

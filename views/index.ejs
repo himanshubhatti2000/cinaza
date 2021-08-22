@@ -1,0 +1,32 @@
+
+<html>
+    <%- include('./partials/nav.ejs')    %>
+
+ 
+    <form  action="/addpost" method="POST">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name='id' required>
+        
+        <label for="title">title:</label>
+        <input type="text" id="title" name='title' required >
+        <label for="review">review:</label>
+        <input type="text" id="review" name='review' required>
+        <label for="haswatced">haswatced:</label>
+        <input type="checkbox" id="haswatced" name='haswatced' required>
+
+        
+        <button>Submit</button>
+    </form>
+    <form  action="/addFriend" method="POST">
+      <label for="id">ID:</label>
+        <input type="text" id="id" name='id' required>
+      <button>addFriends</button>
+  
+  </form>
+
+
+
+</div>
+<%- include('./partials/footer.ejs')    %>
+  </body>
+</html>

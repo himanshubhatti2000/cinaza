@@ -1,0 +1,33 @@
+
+<html>
+    <%- include('./partials/head.ejs')    %>
+<body>
+
+    <%- include('./partials/nav.ejs')    %>
+<div class="enter-id" >
+
+    <form  action="/login" method="POST">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name='id' required>
+        
+        <label for="password">Password:</label>
+        <input type="text" id="password" name='password' required >
+        <p>plz enter correct id and password</p>
+        
+        <button>Submit</button>
+        <!-- login  -->
+        
+        
+    </form>
+    <!-- logout -->
+    <form  action="/logout" method="POST">
+        
+        <button>Logout</button>
+        <!-- login  -->
+
+    </form>
+    
+</div>
+<%- include('./partials/footer.ejs')    %>
+  </body>
+</html>

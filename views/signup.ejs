@@ -1,0 +1,21 @@
+
+<html>
+    <%- include('./partials/head.ejs')    %>
+<body>
+
+    <%- include('./partials/nav.ejs')    %>
+<div class="signup-id ">
+    <form action="/signup" method="POST">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" >
+        <label for="password">Password:</label>
+        <input type="text" id="password"  name="password">
+
+        
+        <button>Signup</button>
+        <!-- signup -->
+    </form>
+</div>
+<%- include('./partials/footer.ejs')    %>
+  </body>
+</html>
