@@ -15,6 +15,7 @@ const axios =require('axios');
 //login
 
 const app_login_post=async(req,res)=>{
+    console.log(req.body.id,req.body.password)
     var id = req.body.id
     var password = req.body.password
     
@@ -30,8 +31,8 @@ const app_login_post=async(req,res)=>{
         }
         req.session.user = user;
         req.session.user.id=user.id;
-        
-        res.redirect('/home')
+        res.send(req.session.user)
+        /*res.redirect('/home')*/
     } catch (error) {
         console.log(error);
       }
@@ -40,7 +41,7 @@ const app_login_post=async(req,res)=>{
 //signup
 
 const app_signup_post= async(req,res)=>{
-    
+    console.log(req.body.email,"email")
     try{
       var user= await User.findOne({id:req.body.id})
       if(user==null){
@@ -61,7 +62,7 @@ const app_signup_post= async(req,res)=>{
       }
           
     }catch{
-        res.status(500);
+      res.send("some error")
     }
 }
 //logout
@@ -278,15 +279,24 @@ const app_posts_get=async(req,res)=>{
       
       result.forEach(result=>{
         
-        allfriends.forEach(allfriends=> {
+        allfriends.forEach(async allfriends=> {
         if(result.uploader==allfriends.username || result.uploader==req.session.user.id){
-          
-          result2.push(result);
+          let {profile}=await user.findOne({id: result.uploader})
+          let newResult={...result,profile}
+          result2.push(newResult);
         }  
     })
     if(result.uploader==req.session.user.id)
     {
-      result2.push(result);
+      let newResult={...result,profile: req.session.user.profile}
+      const aa={hi: "hey",hello: "ji"}
+      const bb={...result,profile: req.session.user.profile}
+      console.log(result,bb)
+      // console.log("result is ",result)
+      // console.log("profile is" , req.session.user.profile)
+      // console.log("newresult is", newResult)
+      result2.push(newResult);
+      
     }
   })
   res.send(result2);
@@ -305,7 +315,7 @@ const app_posts_post=async(req,res)=>{
     (
     {
     id:             request.id,  //movie id
-    reivew:         request.review,
+    review:         request.review,
     uploader:       req.session.user.id,
     haswatched:     request.haswatched,
     imdb:           response.data.imDb,
