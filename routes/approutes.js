@@ -78,7 +78,7 @@ router.get('/',sessionChecker,(req, res) =>{
 });
 
 // // login
-//  router.get('/home/login',sessionChecker,appcontroller.app_login_get);
+  router.get('/home/login',sessionChecker,appcontroller.app_login_get);
 // // signup
 //   router.get('/home/signup',sessionChecker,appcontroller.app_signup_get);
 //login 

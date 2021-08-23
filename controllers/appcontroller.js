@@ -13,6 +13,9 @@ const { query } = require('express');
 const axios =require('axios');
 
 //login
+const app_login_get=(req,res)=>{
+  res.render('login.ejs',{title:'title'})
+}
 
 const app_login_post=async(req,res)=>{
     console.log(req.body.id,req.body.password)
@@ -274,23 +277,22 @@ const app_Friends_get=async(req,res)=>{
 const app_posts_get=async(req,res)=>{
   var result2=[];
   var allfriends=req.session.user.friendsAccepted;
-    await Posts.find().sort({createdAt:-1})
+    await Posts.find().sort({createdAt:-1})//.project(result2)
     .then((result)=>{
       
       result.forEach(result=>{
         
         allfriends.forEach(async allfriends=> {
         if(result.uploader==allfriends.username || result.uploader==req.session.user.id){
-          let {profile}=await user.findOne({id: result.uploader})
-          let newResult={...result,profile}
+          let {profile}=await User.findOne({id: result.uploader})
+          let newResult={result,profile}
           result2.push(newResult);
         }  
     })
     if(result.uploader==req.session.user.id)
     {
-      let newResult={...result,profile: req.session.user.profile}
-      const aa={hi: "hey",hello: "ji"}
-      const bb={...result,profile: req.session.user.profile}
+      let newResult={result,profile: req.session.user.profile}
+      const bb={result,profile: req.session.user.profile}
       console.log(result,bb)
       // console.log("result is ",result)
       // console.log("profile is" , req.session.user.profile)
@@ -328,25 +330,26 @@ const app_posts_post=async(req,res)=>{
     var allfriends=req.session.user.friendsAccepted
     console.log(allfriends)
     await post.save()
-    await Posts.find().sort({createdAt:-1})
-    .then((result)=>{
+  //   await Posts.find().sort({createdAt:-1})
+  //   .then((result)=>{
       
-      result.forEach(result=>{
+  //     result.forEach(result=>{
         
-        allfriends.forEach(allfriends=> {
-        if(result.uploader==allfriends.username || result.uploader==req.session.user.id){
+  //       allfriends.forEach(allfriends=> {
+  //       if(result.uploader==allfriends.username || result.uploader==req.session.user.id){
           
-          result2.push(result);
-        }  
-    })
-    if(result.uploader==req.session.user.id)
-    {
-      result2.push(result);
-    }
-  })
-  res.send(result2);
-  })
-  .catch((err)=>{console.log(err);});
+  //         result2.push(result);
+  //       }  
+  //   })
+  //   if(result.uploader==req.session.user.id)
+  //   {
+  //     result2.push(result);
+  //   }
+  // })
+  // res.send(result2);
+  // })
+  // .catch((err)=>{console.log(err);});
+  res.redirect('/allposts')
   
 };
 
@@ -396,7 +399,7 @@ const app_home_get=async(req,res)=>{
 
 module.exports={
     //app_index,
-
+    app_login_get,
     app_signup_post,
     app_logout,
     app_login_post,
