@@ -349,7 +349,7 @@ const app_posts_post=async(req,res)=>{
   // res.send(result2);
   // })
   // .catch((err)=>{console.log(err);});
-  res.redirect('/allposts')
+  res.send(200)
   
 };
 

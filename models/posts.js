@@ -7,7 +7,7 @@ const userSchema=new Schema({
         
 
     },
-    reivew: {
+    review: {
         type: String,  
     },
     uploader: {
