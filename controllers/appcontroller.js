@@ -13,9 +13,7 @@ const { query } = require('express');
 const axios =require('axios');
 
 //login
-const app_login_get=(req,res)=>{
-  res.render('login.ejs',{title:'title'})
-}
+
 
 const app_login_post=async(req,res)=>{
     console.log(req.body.id,req.body.password)
@@ -352,7 +350,20 @@ const app_posts_post=async(req,res)=>{
   res.send(200)
   
 };
-
+//delete selected post by its _id
+const app_deletepost_post=async(req,res)=>{
+  
+  var id =req.body._id;     // send the unique id made by mongo '_id' here it will find by that unique id and delete it
+  if(req.body.uploader==req.session.user.id)
+  {
+  await Post.findByIdAndDelete(id)
+  .then( (result)=>{res.send('deleted post')})
+  .catch((err)=>{res.send(err)})
+  }else{
+    res.send("not your post")
+  }
+}
+//home data
 const app_home_get=async(req,res)=>{
 // posts
   var friendrequests;
@@ -399,7 +410,7 @@ const app_home_get=async(req,res)=>{
 
 module.exports={
     //app_index,
-    app_login_get,
+ 
     app_signup_post,
     app_logout,
     app_login_post,
@@ -410,6 +421,7 @@ module.exports={
     app_askFriend_get,
     app_posts_get,
     app_posts_post,
+    app_deletepost_post,
     app_requests_get,
     app_notFriends_get,
     app_Friends_get,

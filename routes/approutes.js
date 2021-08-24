@@ -78,7 +78,7 @@ router.get('/',sessionChecker,(req, res) =>{
 });
 
 // // login
-  router.get('/home/login',sessionChecker,appcontroller.app_login_get);
+ // router.get('/home/login',sessionChecker,appcontroller.app_login_get);
 // // signup
 //   router.get('/home/signup',sessionChecker,appcontroller.app_signup_get);
 //login 
@@ -102,6 +102,8 @@ router.get('/',sessionChecker,(req, res) =>{
   router.get('/allpost',appcontroller.app_posts_get);
   //add new posts
   router.post('/addpost',appcontroller.app_posts_post);
+  //delete posts
+  router.post('/deletepost',appcontroller.app_deletepost_post);
   //requests pending
   router.get('/requests',appcontroller.app_requests_get);
   //list of users not friend
