@@ -36,7 +36,7 @@ class Login extends Component {
                onSubmit={this.onSubmit}>
                 <Form>
                     <div className="logo-cover">
-                        <div className="logo"></div>
+                        <div className="c-logo"></div>
                     </div>
                     <FormControl control="input" label="Email" name="id"/>
                     <FormControl control="password" label="password" name="password"/>

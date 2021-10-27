@@ -116,6 +116,8 @@ Form input:focus{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-left: 15%;
+  padding-right: 15%;
 }
 .login-page .image{
   width: 700px;
@@ -124,7 +126,14 @@ Form input:focus{
   background-size: cover;
   background-repeat: no-repeat;
 }
-
+.login-page .c-logo{
+  margin-bottom: 10px;
+  width: 80px;
+  height: 50px;
+  background-image: url('./logo.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 header{
   z-index: 2;
   overflow-y: hidden;
@@ -207,6 +216,17 @@ nav{
   height: 84vh;
   background-color: #ffffff;
   box-shadow: 5px 5px 15px rgba(128, 128, 128, 0.459);
+}
+
+nav a,li{
+  font-size: 0.8rem;
+  text-decoration: none;
+  color: #2d83b8;
+  margin-bottom: 10px;
+
+}
+.active-style{
+  font-weight: bold;
 }
 .add-post{
   display: flex;
@@ -292,7 +312,7 @@ nav{
   flex-direction: column;
   justify-content: space-between;
 }
-.post .ratings-cover{
+.ratings-cover{
   
  align-content: flex-end;
   width: 100%;
@@ -307,16 +327,16 @@ nav{
  flex-direction: column;
  justify-content: space-between;
 }
-.post .ratings{
+.ratings{
   display: flex;
   justify-content: space-between;
 }
-.post .rating{
+.rating{
   display: flex;
   align-items: center;
 }
 
-.post .rating img{
+ .rating img{
   width: 35px;
   height: 35px;
   margin-right: 10px;
@@ -390,4 +410,63 @@ nav{
 .movie-card .rating{
   display: flex;
   align-items: center;
+}
+
+.basic-card{
+  min-width: 130px;
+  max-width: 130px;
+  min-height: 200px;
+  /* background-color: gray; */
+  background-color: #2d83b8;
+  padding: 10px;
+  box-sizing: content-box;
+}
+.basic-card p{
+  text-align: center;
+  color: #dfdfdf;
+  font-size: 0.6rem;
+}
+.basic-card .image{ 
+  width: 100%;
+  height: 180px;
+  background-color: #ed695a;
+}
+.basic-card h3{
+  box-sizing: content-box;
+  padding-top: 10px;
+  text-align: center;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: normal;
+}
+.movie-basic{
+  display: flex;
+  justify-content: space-between;
+}
+.movie-basic h3{
+  color:rgb(112, 112, 112);
+  font-weight: normal;
+  font-size: 1rem;
+}
+.movie-basic .content{
+  width: 550px;
+}
+.movie-basic .poster{
+  height: 300px;
+  width: 200px;
+  background-color: gray;
+}
+
+.flex-box-cards{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  
+}
+.movie-section-layout, .movie-basic{
+  margin-bottom: 50px;
+}
+.movie-section-layout h1{
+  margin-bottom: 20px;
 }

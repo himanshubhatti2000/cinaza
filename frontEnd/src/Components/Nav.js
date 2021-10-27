@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link} from "react-router-dom"
+import {NavLink} from "react-router-dom"
 import StateContext from '../Context/StateContext';
 
 class Nav extends Component {
@@ -9,13 +9,13 @@ class Nav extends Component {
         return (
             <nav>
             <ul>
-                    <li><Link to="/new-movies">New Movies</Link></li>
-                    <li><Link to="/coming-soon">Coming Soon</Link></li>
-                    <li><Link to="/top-250-movies">Top 250 movies</Link></li>
-                    <li><Link to="/top-250-tvseries">Top 250 tvSeries</Link></li>
-                    <li><Link to="/most-popular-movies">Most Popular Movies</Link></li>
-                    <li><Link to="/most-popular-tvs">Most Popular TV series</Link></li>
-                    <li onClick={()=>{this.context.logout()}}> Logout</li>
+                    <li><NavLink activeClassName="active-style" to="/new-movies">New Movies</NavLink></li>
+                    <li><NavLink activeClassName="active-style"  to="/coming-soon">Coming Soon</NavLink></li>
+                    <li><NavLink activeClassName="active-style"  to="/top-250-movies">Top 250 movies</NavLink></li>
+                    <li><NavLink activeClassName="active-style"  to="/top-250-tvseries">Top 250 tvSeries</NavLink></li>
+                    <li><NavLink activeClassName="active-style"  to="/most-popular-movies">Most Popular Movies</NavLink></li>
+                    <li><NavLink activeClassName="active-style" to="/most-popular-tvs">Most Popular TV series</NavLink></li>
+                    <li onClick={()=>{this.context.logout()}}><button style={{textDecoration: "none", border: "none"}}> Logout</button></li>
                    
                     
                 </ul>

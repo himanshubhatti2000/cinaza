@@ -39,7 +39,7 @@ class Signup extends Component {
                onSubmit={this.onSubmit}>
                 <Form>
                     <div className="logo-cover">
-                        <div className="logo"></div>
+                        <div className="c-logo"></div>
                     </div>
                     <FormControl control="input" label="First name" name="firstName"/>
                     <FormControl control="input" label="Last name" name="lastName"/>

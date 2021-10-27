@@ -1,9 +1,6 @@
 import React from 'react';
 import history from '../History/history';
-import imdbi from '../imdb.png'
-import rotten from '../rotten.png'
-import metac from '../metac.png'
-
+import Ratings from './Ratings';
 
 
 const PostCard = ({id,name,review,uploader,hasWatched,image,imdb,metaCritic,rottenTomatoes}) => {
@@ -22,17 +19,7 @@ const PostCard = ({id,name,review,uploader,hasWatched,image,imdb,metaCritic,rott
                                 </p>
                                 </div>
                              
-                                <div className="ratings-cover">
-                                    <div className="ratings">
-                                        <div className="rating"><img src={imdbi} alt=""/> <p>{imdb}</p></div>
-                                        <div className="rating"><img src={rotten} alt=""/>  <p>{rottenTomatoes}</p></div>
-                                    </div>
-                                    <div className="ratings">
-                                        <div className="rating"><img src={metac} alt=""/>  <p>{metaCritic}</p></div>
-                                        <div className="rating"><img src={imdbi} alt=""/>  <p>{metaCritic}</p></div>
-                                    </div>
-                                
-                                </div>
+                               <Ratings imdb={imdb} rottenTomatoes={rottenTomatoes} metaCritic={metaCritic}/>
                               
                             </div>
                             <div className="poster" style={{backgroundImage: `url(${image})`}}></div>

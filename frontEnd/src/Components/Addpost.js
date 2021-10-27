@@ -20,7 +20,8 @@ class Addpost extends Component {
             id:""
         },
         displayTitleModal: true,
-        rating: ''
+        rating: '',
+        review: ""
     }
     state=this.initialState
     titleHandler=(e)=>{
@@ -95,7 +96,7 @@ class Addpost extends Component {
                                     <option value="false">will watch</option>
                                    </select>
                                 </div>
-                                <textarea ref={this.review} maxLength="350" placeholder="Write something about movie..." style={{resize:"none"}}/>
+                                <textarea ref={this.review} onChange={(e)=>{this.setState({review: e.target.value})}} value={this.state.review} maxLength="350" placeholder="Write something about movie..." style={{resize:"none"}}/>
                                 <button className="btn-2" disabled={!this.state.selected.image} onClick={this.SubmitHandler}>post</button>
                             </div>
                             {this.state.selected.image?<img src={this.state.selected.image} alt={this.state.selected.title}/>: <div className="img-poster" />}

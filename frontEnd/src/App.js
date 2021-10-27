@@ -56,13 +56,18 @@ class App extends Component {
     }
     
     this.searchMovies=async (searchString)=>{
-     
     const res=await axios.get(`https://imdb-api.com/en/API/Search/${process.env.REACT_APP_IMDB_KEY}/${searchString}`)
     console.log(res.data.results)
     return res.data.results
   
   }
- 
+  this.movieInfo=async (movieId)=>{
+    const res=await axios.get(` https://imdb-api.com/en/API/Title/${process.env.REACT_APP_IMDB_KEY}/${movieId}`)
+   
+    console.log(res.data)
+   this.setState({selectedMovieDetail: res.data})
+  
+  }
  
  this.getLoginStatus=async()=>{
   const res=await axios.get("http://localhost:5000/user",{ withCredentials: true })
@@ -112,6 +117,7 @@ class App extends Component {
     suggestedFriends: [],
     myPosts: [],
     newsfeed:[],
+    selectedMovieDetail: {title: "",image:"",actorList: [], similars: [],genres: "",type: ""},
     newMovies:[],
     comingSoon:[],
     top250Movies: [],
@@ -122,9 +128,11 @@ class App extends Component {
     Login: this.Login,
     Signup: this.Signup,
     getNewsfeed: this.getNewsfeed,
+    selectedMovie: this.selectedMovie,
     getFriends: this.getFriends,
     getFriendSuggestion: this.getFriendSuggestion,
     getMovies: this.getMovies,
+    movieInfo:this.movieInfo,
     searchMovies:this.searchMovies,
     getLoginStatus:this.getLoginStatus,
     logout: this.logout,
